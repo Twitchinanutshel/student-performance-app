@@ -24,6 +24,7 @@ header {
     color: white;
     background: linear-gradient(90deg, rgba(96,84,184,1) 8%, rgba(106,89,231,1) 50%, rgba(159,150,227,1) 95%);
     z-index: 5;
+    border-bottom: 1px solid rgb(213, 213, 213);
 }
 
 header i {
@@ -38,6 +39,7 @@ header i {
     font-size: 18px;
     background-color: rgb(242, 242, 242);
     box-shadow: -6px 3px 5px 5px rgba(113, 113, 113, 0.75);
+    z-index: 2;
 }
 
 .sidebar-text {
@@ -46,10 +48,13 @@ header i {
     width: 100%;
     height: 20px;
     margin-top: 35px;
-    padding-left: 25px;
+    padding-left: 30px;
     margin-bottom: 35px;
     color: rgb(85, 85, 85);
     font-weight: 500;
+    border-style: none;
+    font-size: 18px;
+    background-color: rgb(242, 242, 242);
 }
 
 
@@ -66,7 +71,7 @@ header i {
     width: 100%;
     height: 30px;
     margin-top: 35px;
-    padding-left: 25px;
+    padding-left: 30px;
     margin-bottom: 35px;
 
 }
@@ -84,42 +89,30 @@ header i {
     cursor: pointer;
 }
 
-.sidebar-btn i {
-    color: rgba(96,84,184,1);
-    align-items: center;
-    padding-left: 10px;
-}
-
-
-
-.fa-plus {
-    padding-top: 2px;
-}
-
-.fa-minus {
-    padding-top: 4px;
-}
 
 /* main page that you scroll*/
 
 .main-page {
-    position: relative; 
+    position: relative;
     top: 96px; /* Adjust based on header height */
     left: 180px; /* Adjust based on sidebar width */
     right: 0; /* Take the remaining width */
     bottom: 0; /* Take the remaining height */
     width: calc(100% - 180px); /* Adjust based on sidebar width */
+    height: calc(100vh - 96px); /* Adjust based on header height */
+    margin-left: 150px;
+    overflow-y: auto; /* Enable vertical scrolling */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    overflow-y: auto; /* Add scrolling if needed */
-    place-items: center;
-    row-gap: 50px;
+    row-gap: 75px;
     padding-top: 50px;
+    align-content: start; /* Align content at the start of the grid */
 }
 
 .class-card {
     text-align: center;
+    width: 125px;
+    height: 100px;
 }
 
 .class-card p {
@@ -134,7 +127,7 @@ header i {
 }
 
 .class-card:hover p {
-    cursor: pointer;
+    cursor: auto;
     color: rgba(96,84,184,1);
 }
 
