@@ -47,7 +47,6 @@ addBtn.addEventListener('click', function(){
 
     removeIcon.addEventListener('click', function(){
         mainPage.removeChild(newClassCard)
-
         cardCounter -= 1
     })
 
