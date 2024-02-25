@@ -113,6 +113,7 @@ header i {
     text-align: center;
     width: 125px;
     height: 100px;
+    margin-bottom: 50px;
 }
 
 .class-card p {
@@ -131,11 +132,39 @@ header i {
     color: rgba(96,84,184,1);
 }
 
+/* animation for when deleting class */
 
-
-
-
-
-.hidden {
-    display: none;
+.removeAnimation {
+    animation: remove-animation 1.2s infinite normal forwards;
 }
+
+@keyframes remove-animation {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateX(-10px) rotate(-6deg);
+	}
+
+	30% {
+		transform: translateX(5px) rotate(6deg);
+	}
+
+	45% {
+		transform: translateX(-5px) rotate(-3.6deg);
+	}
+
+	60% {
+		transform: translateX(4px) rotate(2.4deg);
+	}
+
+	75% {
+		transform: translateX(-2px) rotate(-1.2deg);
+	}
+}
+
+
+

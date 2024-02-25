@@ -3,16 +3,36 @@ const removeBtn = document.getElementById('removeBtn');
 const mainPage = document.querySelector(".main-page");
 let cardCounter = 0;
 
-// all for the add button
 
+
+// all for the add button
 addBtn.addEventListener('click', function(){
-    // so that you can only have a max of 30 classes
-    cardCounter += 1;
-    if (cardCounter > 30) {
+    let newClassCard = document.createElement('div');
+    newClassCard.classList.add('class-card');
+    const className = document.createElement('p');
+
+    if (cardCounter < 5){
+        cardCounter += 1
+    } else if (cardCounter >= 5){
         newClassCard = null
     }
-    const newClassCard = document.createElement('div');
-    newClassCard.classList.add('class-card');
+
+    className.addEventListener('keydown', function(event){
+        if (event.key === 'Enter'){
+            if (className.textContent.trim() === ''){
+                // If class name is empty, remove the class card
+                mainPage.removeChild(newClassCard);
+                cardCounter -= 1;
+            }
+        }
+    });
+    className.addEventListener("blur", function() {
+        if (className.textContent.trim() === "") {
+            // If class name is empty, remove the class card
+            mainPage.removeChild(newClassCard);
+            cardCounter -= 1;
+        }
+    });
 
     // create the school class icon variable
     const icon = document.createElement("i");
@@ -21,7 +41,7 @@ addBtn.addEventListener('click', function(){
 
 
     // make it so user can add text to class name
-    const className = document.createElement('p')
+
     className.contentEditable = true;
     className.textContent = "New Class"; // Default name
     className.classList.add("editable");
@@ -33,23 +53,16 @@ addBtn.addEventListener('click', function(){
     mainPage.appendChild(newClassCard);
     
 
-    className.addEventListener('keydown', function(event){
-        if (event.key === 'Enter'){
-            if (className.textContent.trim() === ''){
-                // If class name is empty, remove the class card
-                mainPage.removeChild(newClassCard);
-            }
-        }
-    });
-    className.addEventListener("blur", function() {
-        if (className.textContent.trim() === "") {
-            // If class name is empty, remove the class card
-            mainPage.removeChild(newClassCard);
-        }
-    });
+
+    console.log(cardCounter)
 });
 
 
+
+// all for remove button
 removeBtn.addEventListener('click', function(){
-    
-})
+    const classCards = document.querySelectorAll('.class-card');
+    classCards.forEach((card) => {
+        card.classList.add('removeAnimation');
+    })
+});
