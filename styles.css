@@ -110,6 +110,7 @@ header i {
 }
 
 .class-card {
+    position: relative;
     text-align: center;
     width: 125px;
     height: 100px;
@@ -132,10 +133,22 @@ header i {
     color: rgba(96,84,184,1);
 }
 
+.xmark {
+    position: absolute;
+    bottom: 85px;
+    right: 0px;
+    animation: none;
+    border-style: none;
+    border: 1px solid black;
+}
+
+.xmark:hover {
+    cursor: pointer;
+}
 /* animation for when deleting class */
 
 .removeAnimation {
-    animation: remove-animation 1.2s infinite normal forwards;
+    animation: remove-animation 1s infinite normal forwards;
 }
 
 @keyframes remove-animation {
@@ -146,23 +159,23 @@ header i {
 	}
 
 	15% {
-		transform: translateX(-10px) rotate(-6deg);
+		transform: translateX(-1px) rotate(-4deg);
 	}
 
 	30% {
-		transform: translateX(5px) rotate(6deg);
+		transform: translateX(1px) rotate(4deg);
 	}
 
 	45% {
-		transform: translateX(-5px) rotate(-3.6deg);
+		transform: translateX(-1px) rotate(-2.6deg);
 	}
 
 	60% {
-		transform: translateX(4px) rotate(2.4deg);
+		transform: translateX(2px) rotate(1.4deg);
 	}
 
 	75% {
-		transform: translateX(-2px) rotate(-1.2deg);
+		transform: translateX(-1px) rotate(-1.6deg);
 	}
 }
 
