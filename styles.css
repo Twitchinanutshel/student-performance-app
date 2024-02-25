@@ -100,21 +100,19 @@ header i {
     bottom: 0; /* Take the remaining height */
     width: calc(100% - 180px); /* Adjust based on sidebar width */
     height: calc(100vh - 96px); /* Adjust based on header height */
-    margin-left: 150px;
+    margin-left: 140px;
     overflow-y: auto; /* Enable vertical scrolling */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 375px);
     row-gap: 75px;
     padding-top: 50px;
     align-content: start; /* Align content at the start of the grid */
 }
 
 .class-card {
-    position: relative;
     text-align: center;
     width: 125px;
     height: 100px;
-    margin-bottom: 50px;
 }
 
 .class-card p {
@@ -133,51 +131,11 @@ header i {
     color: rgba(96,84,184,1);
 }
 
-.xmark {
-    position: absolute;
-    bottom: 85px;
-    right: 0px;
-    animation: none;
-    border-style: none;
-    border: 1px solid black;
+
+
+
+
+
+.hidden {
+    display: none;
 }
-
-.xmark:hover {
-    cursor: pointer;
-}
-/* animation for when deleting class */
-
-.removeAnimation {
-    animation: remove-animation 1s infinite normal forwards;
-}
-
-@keyframes remove-animation {
-	0%,
-	100% {
-		transform: translateX(0%);
-		transform-origin: 50% 50%;
-	}
-
-	15% {
-		transform: translateX(-1px) rotate(-4deg);
-	}
-
-	30% {
-		transform: translateX(1px) rotate(4deg);
-	}
-
-	45% {
-		transform: translateX(-1px) rotate(-2.6deg);
-	}
-
-	60% {
-		transform: translateX(2px) rotate(1.4deg);
-	}
-
-	75% {
-		transform: translateX(-1px) rotate(-1.6deg);
-	}
-}
-
-
-
