@@ -69,15 +69,16 @@ addBtn.addEventListener('click', function(){
     console.log(cardCounter)
 });
 
-
-
-// all for remove button
-removeBtn.addEventListener('click', function(){
+function removeButtonFunc(){
     const classCards = document.querySelectorAll('.class-card');
     classCards.forEach((card) => {
         const closeIcon = card.querySelector('.xmark');
-        card.classList.add('removeAnimation');
-        closeIcon.style.display = 'block';
+        card.classList.toggle('removeAnimation');
+        if (closeIcon.style.display === 'none'){
+            closeIcon.style.display = 'block';
+        } else {
+            closeIcon.style.display = 'none';
+        }
 
         document.addEventListener('click', function(event) {
             const target = event.target;
@@ -90,4 +91,9 @@ removeBtn.addEventListener('click', function(){
             }
         });
     });
+}
+
+// all for remove button
+removeBtn.addEventListener('click', function(){
+    removeButtonFunc()
 });
