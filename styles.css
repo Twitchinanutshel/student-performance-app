@@ -179,4 +179,37 @@ header i {
 	}
 }
 
+.class {
+    color: rgb(220, 0, 0);
+}
 
+@media only screen 
+   and (max-width : 400px) {
+    body  {
+        overflow: hidden;
+    }
+    header i {
+        margin-right: 20px;
+    }
+    header {
+        text-align: center;
+        font-size: 10px;
+    }
+    header h1 {
+        width: 300px;
+    }
+
+    .main-page {
+        grid-template-columns: repeat(1, 1fr);
+        left: 68px;
+    }
+
+    .class-card {
+        position: relative;
+        text-align: center;
+        width: 125px;
+        height: 100px;
+        margin-bottom: 50px;
+        z-index: 15;
+    }
+}

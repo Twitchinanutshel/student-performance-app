@@ -4,24 +4,24 @@ const mainPage = document.querySelector(".main-page");
 let cardCounter = 0;
 
 
-
 // all for the add button
 addBtn.addEventListener('click', function(){
     let newClassCard = document.createElement('div');
     newClassCard.classList.add('class-card');
     const className = document.createElement('p');
 
-    if (cardCounter < 30){
+    if (cardCounter < 15){
         cardCounter += 1
-    } else if (cardCounter >= 30){
+    } else if (cardCounter >= 15){
         newClassCard = null
     }
 
     className.addEventListener('keydown', function(event){
         if (event.key === 'Enter'){
+            event.preventDefault();
             if (className.textContent.trim() === ''){
                 // If class name is empty, remove the class card
-                mainPage.removeChild(newClassCard);
+                className.textContent = "New Class";
                 cardCounter -= 1;
             }
         }
@@ -29,7 +29,7 @@ addBtn.addEventListener('click', function(){
     className.addEventListener("blur", function() {
         if (className.textContent.trim() === "") {
             // If class name is empty, remove the class card
-            mainPage.removeChild(newClassCard);
+            className.textContent = "New Class";
             cardCounter -= 1;
         }
     });
@@ -42,7 +42,7 @@ addBtn.addEventListener('click', function(){
     // create icon for removing button
     const removeIcon = document.createElement('button');
     removeIcon.classList.add("fa-solid", "fa-xmark", "fa-2x", 'xmark');
-    removeIcon.style.color = "black";
+    removeIcon.style.color = "rgb(220, 0, 0)";
     removeIcon.style.display = 'none'
 
     removeIcon.addEventListener('click', function(){
@@ -69,7 +69,8 @@ addBtn.addEventListener('click', function(){
     console.log(cardCounter)
 });
 
-function removeButtonFunc(){
+// all for remove button
+removeBtn.addEventListener('click', function(){
     const classCards = document.querySelectorAll('.class-card');
     classCards.forEach((card) => {
         const closeIcon = card.querySelector('.xmark');
@@ -91,9 +92,4 @@ function removeButtonFunc(){
             }
         });
     });
-}
-
-// all for remove button
-removeBtn.addEventListener('click', function(){
-    removeButtonFunc()
 });
