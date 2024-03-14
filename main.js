@@ -4,6 +4,7 @@ const mainPage = document.querySelector(".main-page");
 let cardCounter = 0;
 
 
+
 // all for the add button
 addBtn.addEventListener('click', function(){
     let newClassCard = document.createElement('div');
@@ -80,16 +81,45 @@ removeBtn.addEventListener('click', function(){
         } else {
             closeIcon.style.display = 'none';
         }
-
-        document.addEventListener('click', function(event) {
-            const target = event.target;
-            if (!target.classList.contains('xmark') && target !== removeBtn) {
-                classCards.forEach((card) => {
-                    const closeIcon = card.querySelector('.xmark');
-                    card.classList.remove('removeAnimation');
-                    closeIcon.style.display = 'none';
-                });
-            }
-        });
     });
+    document.addEventListener('click', function(event) {
+        const target = event.target;
+        const classCards = document.querySelectorAll('.class-card');
+        
+        if (!target.classList.contains('xmark') && target !== removeBtn) {
+            classCards.forEach((card) => {
+                const closeIcon = card.querySelector('.xmark');
+                card.classList.remove('removeAnimation');
+                closeIcon.style.display = 'none';
+            });
+        }
+    });
+    
 });
+
+
+
+
+const helpBtn = document.getElementById('help');
+const helpLinksContainer = document.getElementById('helpLinksContainer');
+
+helpBtn.addEventListener('click', function(){
+    helpLinksContainer.classList.toggle('show'); 
+});
+
+const flag = document.getElementById('flag');
+const overlay = document.getElementById('overlay')
+
+flag.addEventListener('click', function(){
+    overlay.classList.toggle('visible')
+
+    document.addEventListener('click', function closeOverlay(event) {
+        const isClickInsideOverlay = overlay.contains(event.target);
+
+        if (!isClickInsideOverlay && event.target !== flag) {
+            overlay.classList.add('visible');
+        }
+    });
+    
+
+})

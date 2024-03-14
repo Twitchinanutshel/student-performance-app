@@ -17,23 +17,29 @@
     </header>
     <aside class="sidebar">
         <div class="sidebar-text-container">
-            <div class="sidebar-btn">
-                <button id="addBtn">Add Class</button>
-            </div>
-            <div class="sidebar-btn">
-                <button id="removeBtn">Remove Class</button>
-            </div>
+            <button id="addBtn" class="sidebar-btn add-remove-btn"><b>Add Class</b></button>
+            <button id="removeBtn" class="sidebar-btn add-remove-btn"><b>Remove Class</b></button>
             <button class="sidebar-text">Home Page</button>
             <button class="sidebar-text">Classes</button>
             <button class="sidebar-text">Teachers</button>
-            <button class="sidebar-text">Help</button>
-            <button class="sidebar-text">Dark Mode</button>
-            <button class="sidebar-text">Themes</button>
+            <button class="sidebar-text" id="help">Help<i class="fa-solid fa-chevron-down"></i></button>
+            <div class="help-links-container show" id="helpLinksContainer">
+                <div class="help-links" id="helpLinks">
+                    <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Contact us</a>
+                    <a href="blank" target="_blank">Our page</a>
+                    <a></a>
+                </div>
+            </div>
+            <img src="aboriginalflag.png" class="aboriginal-flag" id="flag"></img>
+            <p class="acknowledge">Acknowledgement</p>
         </div>
     </aside>
     <section class="main-page">
 
     </section>
+    <div class="visible" id="overlay">
+        <p >We acknowledge the Traditional Owners and Custodians of the lands on which we work and pay our respects to Indigenous Elders past, present and emerging.</p>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>

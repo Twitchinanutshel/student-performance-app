@@ -23,7 +23,7 @@ header {
     width: 100%;
     color: white;
     background: linear-gradient(90deg, rgba(96,84,184,1) 8%, rgba(106,89,231,1) 50%, rgba(159,150,227,1) 95%);
-    z-index: 5;
+    z-index: 50;
     border-bottom: 1px solid rgb(213, 213, 213);
 }
 
@@ -31,6 +31,14 @@ header i {
     margin-right: 120px;
 }
 
+.aboriginal-flag{
+    margin-top: 25px;
+    margin-left: 25px;
+    height: 75px;
+    width: 125px;
+    border-radius: 10px;
+    cursor: pointer;
+}
 .sidebar {
     position: fixed;
     margin-top: 84px;
@@ -46,10 +54,32 @@ header i {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 20px;
-    margin-top: 35px;
+    height: 65px;
     padding-left: 30px;
-    margin-bottom: 35px;
+    color: rgb(85, 85, 85);
+    font-weight: 500;
+    border-style: none;
+    font-size: 18px;
+    background-color: rgb(242, 242, 242);
+
+}
+
+.sidebar-text i{
+    margin-left: 7px;
+}
+
+.sidebar-text:hover {
+    cursor: pointer;
+    color: rgba(106,89,231,1);
+    background-color: rgb(230, 230, 230);
+}
+
+.sidebar-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 65px;
+    padding-left: 30px;
     color: rgb(85, 85, 85);
     font-weight: 500;
     border-style: none;
@@ -57,36 +87,25 @@ header i {
     background-color: rgb(242, 242, 242);
 }
 
+.sidebar-btn:first-child{
+    margin-top: 13px;
+}
 
+.add-remove.btn{
+    font-weight: 900;
+}
 
-.sidebar-text:hover {
+.sidebar-btn:hover {
     cursor: pointer;
-    color: rgba(106,89,231,1);
+    background-color: rgb(230, 230, 230);
+    color: rgb(88, 74, 194);
+}
+
+.acknowledge{
+    padding-left: 15px;
     font-weight: 600;
-}
-
-.sidebar-btn {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 30px;
-    margin-top: 35px;
-    padding-left: 30px;
-    margin-bottom: 35px;
-
-}
-
-.sidebar-btn button {
-    border-style: none;
-    font-size: 18px;
-    font-weight: 700;
-    color: rgb(74, 65, 140);
-    background-color: rgb(242, 242, 242);
-}
-
-
-.sidebar-btn button:hover {
-    cursor: pointer;
+    color: black;
+    margin-top: 10px;
 }
 
 
@@ -151,6 +170,8 @@ header i {
     animation: remove-animation 1s infinite normal forwards;
 }
 
+
+
 @keyframes remove-animation {
 	0%,
 	100% {
@@ -213,3 +234,57 @@ header i {
         z-index: 15;
     }
 }
+
+.help-links-container{
+    overflow: hidden;
+    max-height: 200px;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.help-links-container.show {
+    max-height: 0; 
+    transition-timing-function: ease-out;
+}
+
+.help-links-container a{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    font-size: 16px;
+}
+
+.help-links-container a:first-of-type{
+    margin-bottom: 22px;
+    margin-top: 7px;
+}
+
+.help-links-container a:last-of-type{
+    margin-bottom: 10px;
+}
+
+#overlay{
+    opacity: 1;
+    background-color: #f0f0f0;
+    position: absolute;
+    top: 40%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 120px;
+    width: 550px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+    transition: opacity 1s ease; /* Transition effect on opacity */
+}
+
+#overlay.visible {
+    opacity: 0; /* Visible when 'visible' class is added */
+}
+
+#overlay p{
+    width: 550px;
+    padding: 15px;
+    font-weight: 700;
+    line-height: 30px;
+    font-size: 20px;
+}
+
