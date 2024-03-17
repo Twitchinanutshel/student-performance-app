@@ -82,20 +82,23 @@ removeBtn.addEventListener('click', function(){
             closeIcon.style.display = 'none';
         }
     });
-    document.addEventListener('click', function(event) {
-        const target = event.target;
-        const classCards = document.querySelectorAll('.class-card');
-        
-        if (!target.classList.contains('xmark') && target !== removeBtn) {
-            classCards.forEach((card) => {
-                const closeIcon = card.querySelector('.xmark');
-                card.classList.remove('removeAnimation');
-                closeIcon.style.display = 'none';
-            });
-        }
-    });
-    
+    document.addEventListener('click', stopRemoveAnimation);
 });
+
+function stopRemoveAnimation(event) {
+    const classCards = document.querySelectorAll('.class-card');
+    const isRemoveButtonClicked = event.target.closest('#removeBtn');
+    if (!isRemoveButtonClicked) {
+        classCards.forEach((card) => {
+            card.classList.remove('removeAnimation');
+            const closeIcon = card.querySelector('.xmark');
+            closeIcon.style.display = 'none';
+        });
+
+        // Remove the event listener after stopping animation
+        document.removeEventListener('click', stopRemoveAnimation);
+    }
+}
 
 
 
@@ -112,6 +115,7 @@ const overlay = document.getElementById('overlay')
 
 flag.addEventListener('click', function(){
     overlay.classList.toggle('visible')
+    overlay.classList.toggle('overlay-animation')
 
     document.addEventListener('click', function closeOverlay(event) {
         const isClickInsideOverlay = overlay.contains(event.target);

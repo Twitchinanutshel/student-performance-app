@@ -33,7 +33,7 @@ header i {
 
 .aboriginal-flag{
     margin-top: 25px;
-    margin-left: 25px;
+    margin-left: 30px;
     height: 75px;
     width: 125px;
     border-radius: 10px;
@@ -106,6 +106,7 @@ header i {
     font-weight: 600;
     color: black;
     margin-top: 10px;
+    text-align: center;
 }
 
 
@@ -273,7 +274,11 @@ header i {
     width: 550px;
     border-radius: 10px;
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-    transition: opacity 1s ease; /* Transition effect on opacity */
+    transition: opacity 2.5s ease; /* Transition effect on opacity */
+}
+
+.overlay-animation{
+    animation: spin 3s;
 }
 
 #overlay.visible {
@@ -288,3 +293,11 @@ header i {
     font-size: 20px;
 }
 
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg); /* Initial position and rotation */
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg); /* Full rotation */
+    }
+}
